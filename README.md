@@ -20,5 +20,5 @@ This project is a C++ application that generates a mosaic image from a given inp
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/yourusername/mosaic-cat-images.git
-   cd mosaic-cat-images
+   git clone https://github.com/pierreantoineviudes/MosaicGiphyCpp.git
+   cd MosaicGiphyCpp
