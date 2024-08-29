@@ -22,3 +22,10 @@ This project is a C++ application that generates a mosaic image from a given inp
    ```bash
    git clone https://github.com/pierreantoineviudes/MosaicGiphyCpp.git
    cd MosaicGiphyCpp
+   mkdir build
+   cd build
+   cmake ..
+   make
+   ./MosaicFromSmallCats
+   ```
+
