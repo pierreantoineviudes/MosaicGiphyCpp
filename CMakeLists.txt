@@ -1,0 +1,12 @@
+cmake_minimum_required(VERSION 2.8)
+project( MosaicFromSmallCats )
+set(nlohmann_json_DIR ~/dev/json/)
+find_package( OpenCV REQUIRED )
+include_directories( ${OpenCV_INCLUDE_DIRS} )
+include_directories( ~/dev/json/ )
+add_executable( MosaicFromSmallCats MosaicFromSmallCats.cpp )
+# CMakeLists.txt
+find_package(nlohmann_json 3.2.0 REQUIRED)
+# add_library(MosaicFromSmallCats ...)
+target_link_libraries( MosaicFromSmallCats PRIVATE nlohmann_json::nlohmann_json)
+target_link_libraries( MosaicFromSmallCats ${OpenCV_LIBS} )
