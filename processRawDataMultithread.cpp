@@ -27,13 +27,18 @@ void processImagesArr(int deb_inclu, int fin_exclue)
             cvtColor(img, img, COLOR_RGB2GRAY);
             resize(img, img, Size(taille_dalle, taille_dalle));
             Scalar mean = cv::mean(img);
-            // save img
-            String filePath = "/home/paviudes/dev/mosaicgiphycpp/data_output/image_" + to_string(i) + ".jpg";
-            imwrite(filePath, img);
 
-            // update json file
-            dict_of_images[mean[0]].push_back(filePath);
-            cout << (float(i) - deb_inclu) / float(ceil(countImages * 1.0 / max_num_threads)) * 100 << "%" << endl;
+            // update jsonFile and save Img only if no mean value image already in
+            if (dict_of_images[mean[0]].size() == 0)
+            {
+                cout << (float(i) - deb_inclu) / float(ceil(countImages * 1.0 / max_num_threads)) * 100 << "%" << endl;
+                // save img
+                String filePath = "/home/paviudes/dev/mosaicgiphycpp/data_output/image_" + to_string(i) + ".jpg";
+                imwrite(filePath, img);
+
+                // update json file
+                dict_of_images[mean[0]].push_back(filePath);
+            }
         }
     }
 }
