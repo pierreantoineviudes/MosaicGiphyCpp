@@ -28,4 +28,4 @@ This project is a C++ application that generates a mosaic image from a given inp
    make
    ./MosaicFromSmallCats
    ```
-
+TODO : conteneurizer et dockerizer l'app, avoir une belle structure de projet C++
