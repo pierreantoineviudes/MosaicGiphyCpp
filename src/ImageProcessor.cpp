@@ -40,7 +40,7 @@ void ImageProcessor::processImageArr(int deb_inclu, int fin_exclue)
             {
                 cout << (float(i) - deb_inclu) / float(ceil(countImages * 1.0 / max_num_threads)) * 100 << "%" << endl;
                 // save img
-                String filePath = "/home/paviudes/dev/test_cmake/data_output/image_" + to_string(i) + ".jpg";
+                String filePath = "/mnt/d/fichiers_pa/dev_ubuntu/MosaicGiphyCpp/data_output/image_" + to_string(i) + ".jpg";
                 imwrite(filePath, img);
 
                 // update json file
@@ -52,7 +52,7 @@ void ImageProcessor::processImageArr(int deb_inclu, int fin_exclue)
 
 void ImageProcessor::processImages()
 {
-    glob("/home/paviudes/dev/mosaicgiphycpp/data/*.jpg", fn, true);
+    glob("/mnt/d/fichiers_pa/dev_ubuntu/MosaicGiphyCpp/data/*.jpg", fn, true);
     countImages = fn.size();
     cout << "nb total d'images : " << countImages << endl;
     for (int i = 0; i < 255; i++)
@@ -81,7 +81,7 @@ void ImageProcessor::processImages()
 
     // save json object to file
     string s = dict_of_images.dump();
-    ofstream out("/home/paviudes/dev/test_cmake/output_small.json");
+    ofstream out("/mnt/d/fichiers_pa/dev_ubuntu/MosaicGiphyCpp/output_small.json");
     out << s;
     out.close();
 }

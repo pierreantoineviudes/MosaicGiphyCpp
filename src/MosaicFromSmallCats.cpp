@@ -1,7 +1,7 @@
 #define MAX_NUM_THREADS 8
 #define TAILLE_DALLE 50
 #define ALPHA 5
-#define PATH_BIG_IMAGE "/home/paviudes/dev/mosaicgiphycpp/images/jphanna.jpg"
+#define PATH_BIG_IMAGE "/mnt/d/fichiers_pa/dev_ubuntu/MosaicGiphyCpp/data/pviudes.jpg"
 
 #include <iostream>
 #include <fstream>
@@ -27,7 +27,7 @@ MosaicFromSmallCats::MosaicFromSmallCats()
     this->newWidth = width / ALPHA;
     this->newHeight = height / ALPHA;
     this->outputArr = Mat::zeros( newWidth *TAILLE_DALLE, newHeight * TAILLE_DALLE, CV_8UC1);
-    std::ifstream f("/home/paviudes/dev/test_cmake/output_small.json");
+    std::ifstream f("/mnt/d/fichiers_pa/dev_ubuntu/MosaicGiphyCpp/output_small.json");
     this->json_data = json::parse(f);
 }
 
@@ -109,6 +109,6 @@ void MosaicFromSmallCats::createMosaic()
     }
 
     // save big image
-    imwrite("/home/paviudes/dev/test_cmake/outputsmall.jpg", outputArr);
+    imwrite("/mnt/d/fichiers_pa/dev_ubuntu/MosaicGiphyCpp/outputsmall.jpg", outputArr);
     cout << "succeded to save image !! " << endl;
 }
