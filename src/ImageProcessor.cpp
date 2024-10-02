@@ -40,7 +40,7 @@ void ImageProcessor::processImageArr(int deb_inclu, int fin_exclue)
             {
                 cout << (float(i) - deb_inclu) / float(ceil(countImages * 1.0 / max_num_threads)) * 100 << "%" << endl;
                 // save img
-                String filePath = "/home/paviudes/dev/test_cmake/data/data_output/image_" + to_string(i) + ".jpg";
+                String filePath = "/home/paviudes/dev/test_cmake/data_output/image_" + to_string(i) + ".jpg";
                 imwrite(filePath, img);
 
                 // update json file
