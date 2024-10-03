@@ -4,6 +4,8 @@
 
 MosaicCats is a C++ application that generates a mosaic image using a collection of smaller images, inspired by the Giphy format. It leverages powerful libraries such as OpenCV for image processing and nlohmann_json for handling JSON data. JSON is used for configuration and storing data about images.
 
+![PAVIUDES](outputpaviudes.jpg)
+
 ## Features
 
 - Create mosaic images from a set of small images.
