@@ -16,7 +16,7 @@ Before you begin, ensure you have the following installed:
 
 - [Docker](https://www.docker.com/get-started) (for containerization)
 
-If you prefer to use it locally (not recommended). You will need to install [OpenCV](), C++ buid tools, [CMake](https://cmake.org/), [vcpkg](https://vcpkg.io/en/), and install [nlohmann-json](https://github.com/nlohmann/json) with vcpkg.
+If you prefer to use it locally (not recommended). You will need to install [OpenCV](https://opencv.org/), C++ buid tools, [CMake](https://cmake.org/), [vcpkg](https://vcpkg.io/en/), and install [nlohmann-json](https://github.com/nlohmann/json) with vcpkg.
 
 ## Installation
 
