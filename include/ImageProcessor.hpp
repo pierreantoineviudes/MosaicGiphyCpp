@@ -6,6 +6,7 @@ class ImageProcessor
 {
 public:
     ImageProcessor();
+    json config;
     void processImageArr(int deb_inclu, int fin_exclue);
     void processImages();
     int taille_dalle;

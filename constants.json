@@ -1,0 +1,7 @@
+{
+    "MAX_NUM_THREADS": 8,
+    "TAILLE_DALLE": 50,
+    "NEW_WIDTH": 100,
+    "PATH_BIG_IMAGE": "/mnt/d/fichiers_pa/dev_ubuntu/MosaicGiphyCpp/data/pviudes.jpg",
+    "TILES_DICT_PATH": "/mnt/d/fichiers_pa/dev_ubuntu/MosaicGiphyCpp/tiles_dict.json"
+}

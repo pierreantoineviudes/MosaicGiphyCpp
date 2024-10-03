@@ -4,7 +4,7 @@
 #include <fstream>
 #include <nlohmann/json.hpp>
 #include <thread>
-#include "constants.hpp"
+
 
 using namespace std;
 using namespace cv;
@@ -15,9 +15,12 @@ size_t countImages; // number of png files in images folder
 
 ImageProcessor::ImageProcessor()
 {
+    // load config
+    std::ifstream configFile(std::string(PROJECT_ROOT) + "/constants.json");
+    this->config = json::parse(configFile);
     json dict_of_images;
-    this->taille_dalle = TAILLE_DALLE;
-    this->max_num_threads = MAX_NUM_THREADS;
+    this->taille_dalle = config["TAILLE_DALLE"];
+    this->max_num_threads = config["MAX_NUM_THREADS"];
     this->dict_of_images = dict_of_images;
 }
 
@@ -38,7 +41,7 @@ void ImageProcessor::processImageArr(int deb_inclu, int fin_exclue)
             {
                 cout << (float(i) - deb_inclu) / float(ceil(countImages * 1.0 / max_num_threads)) * 100 << "%" << endl;
                 // save img
-                String filePath = "/mnt/d/fichiers_pa/dev_ubuntu/MosaicGiphyCpp/data_output/image_" + to_string(i) + ".jpg";
+                String filePath = std::string(PROJECT_ROOT) + "/data_output/image_" + to_string(i) + ".jpg";
                 imwrite(filePath, img);
 
                 // update json file
@@ -50,7 +53,8 @@ void ImageProcessor::processImageArr(int deb_inclu, int fin_exclue)
 
 void ImageProcessor::processImages()
 {
-    glob("/mnt/d/fichiers_pa/dev_ubuntu/MosaicGiphyCpp/data/*.jpg", fn, true);
+    std::string dataDir = std::string(PROJECT_ROOT) + "data/*jpg";
+    glob(dataDir, fn, true);
     countImages = fn.size();
     cout << "nb total d'images : " << countImages << endl;
     for (int i = 0; i < 255; i++)
@@ -79,7 +83,7 @@ void ImageProcessor::processImages()
 
     // save json object to file
     string s = dict_of_images.dump();
-    ofstream out("/mnt/d/fichiers_pa/dev_ubuntu/MosaicGiphyCpp/output_small.json");
+    ofstream out(config["TILES_DICT_PATH"]);
     out << s;
     out.close();
 }

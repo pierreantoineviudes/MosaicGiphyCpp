@@ -8,6 +8,7 @@ class MosaicFromSmallCats
 {
 public:
     MosaicFromSmallCats();
+    json config;
     int taille_dalle;
     int max_num_threads;
     int alpha;

@@ -1,13 +1,15 @@
-#include "MyClass.hpp"
 #include <opencv2/opencv.hpp>
 #include "ImageProcessor.hpp"
 #include "MosaicFromSmallCats.hpp"
+#include <iostream>
 
 using namespace cv;
 using namespace std;
 
 int main()
 {
+    cout << "Project Root: " << PROJECT_ROOT <<     endl;
+
     // auto start = chrono::high_resolution_clock::now();
     // // create image processor
     // ImageProcessor processor;
