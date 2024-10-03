@@ -51,3 +51,20 @@ docker cp mosaiccontainer:/app/outputsmall.jpg ./myoutputpath.jpg
 ```
 
 #### Using the image from DockerHub
+
+```bash
+docker run --name mymosaicapp -it yourusername/mosaicimage:latest /bin/bash
+```
+
+Then replace your own config files and input (from another terminal)
+
+```bash
+docker cp ./pathtoyourowninput.jpg mymosaicapp:/app/input.jpg
+docker cp ./pathtoyourownconfig.json mymosaicapp:/app/constants.json
+```
+
+And then, run the app from the interactive shell in the container (executable of the app is in the `/app/build` folder)
+
+```bash
+./build/main
+```
