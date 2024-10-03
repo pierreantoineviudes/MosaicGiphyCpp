@@ -2,6 +2,7 @@
     "MAX_NUM_THREADS": 8,
     "TAILLE_DALLE": 50,
     "NEW_WIDTH": 100,
+    
     "PATH_BIG_IMAGE": "/app/input.jpg",
     "TILES_DICT_PATH": "/app/tiles_dict.json"
 }
