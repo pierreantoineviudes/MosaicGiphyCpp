@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.5.0)
 project(test_cmake VERSION 0.1.0 LANGUAGES C CXX)
 
+set( nlohmann_json_DIR /mnt/d/logiciels_PA/vcpkg/installed/x64-linux/share/nlohmann_json )
+
 add_executable(test_cmake src/main.cpp src/MyClass.cpp src/ImageProcessor.cpp src/MosaicFromSmallCats.cpp)
 
 find_package( OpenCV REQUIRED )

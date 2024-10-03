@@ -4,13 +4,11 @@
 #include <fstream>
 #include <nlohmann/json.hpp>
 #include <thread>
+#include "constants.hpp"
 
 using namespace std;
 using namespace cv;
 using json = nlohmann::json;
-
-#define TAILLE_DALLE 50;
-#define MAX_NUM_THREADS 8;
 
 vector<cv::String> fn;
 size_t countImages; // number of png files in images folder

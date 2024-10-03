@@ -1,8 +1,3 @@
-#define MAX_NUM_THREADS 8
-#define TAILLE_DALLE 50
-#define ALPHA 5
-#define PATH_BIG_IMAGE "/mnt/d/fichiers_pa/dev_ubuntu/MosaicGiphyCpp/data/pviudes.jpg"
-
 #include <iostream>
 #include <fstream>
 #include <nlohmann/json.hpp>
@@ -10,6 +5,7 @@
 #include <thread>
 #include <chrono>
 #include "MosaicFromSmallCats.hpp"
+#include "constants.hpp"
 
 using json = nlohmann::json;
 using namespace std;
