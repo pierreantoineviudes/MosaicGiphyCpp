@@ -53,7 +53,7 @@ docker cp mosaiccontainer:/app/outputsmall.jpg ./myoutputpath.jpg
 #### Using the image from DockerHub
 
 ```bash
-docker run --name mymosaicapp -it yourusername/mosaicimage:latest /bin/bash
+docker run --name mymosaicapp -it pierreantoineviudes/mosaicimage:latest /bin/bash
 ```
 
 Then replace your own config files and input (from another terminal)
