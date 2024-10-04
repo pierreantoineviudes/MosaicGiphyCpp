@@ -1,5 +1,14 @@
 # MOSAICCATS
 
+- [MOSAICCATS](#mosaiccats)
+  - [Project Description](#project-description)
+  - [Features](#features)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+    - [Using Docker](#using-docker)
+      - [Building the docker image from sources](#building-the-docker-image-from-sources)
+      - [Using the image from DockerHub](#using-the-image-from-dockerhub)
+
 ## Project Description
 
 MosaicCats is a C++ application that generates a mosaic image using a collection of smaller images, inspired by the Giphy format. It leverages powerful libraries such as OpenCV for image processing and nlohmann_json for handling JSON data. JSON is used for configuration and storing data about images.
