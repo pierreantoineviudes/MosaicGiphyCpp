@@ -14,12 +14,13 @@ ENV PATH="/home/vcpkg:${PATH}"
 # Set the working directory inside the container
 WORKDIR /app
 
+RUN vcpkg install nlohmann-json
+
 # Copy your C++ project into the container
 COPY . .
 
 # Update package lists and install the latest CMake
 RUN apt-get update && apt-get install -y cmake
-RUN vcpkg install nlohmann-json
 
 # Build the project
 RUN mkdir build && cd build && \
