@@ -43,7 +43,7 @@ You are finally set to build the image !!!
 
 ```bash
 docker build -t mosaicimage .
-docker run -name mosaiccontainer mosaicimage
+docker run --name mosaiccontainer mosaicimage
 ```
 
 Then you will have to get the output image out of the container to be able to access it from your local machine:
