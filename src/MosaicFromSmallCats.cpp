@@ -14,17 +14,17 @@ using namespace chrono;
 MosaicFromSmallCats::MosaicFromSmallCats()
 {
     // load config file
-    std::ifstream configFile(std::string(PROJECT_ROOT) + "/constants.json");
+    std::ifstream configFile(std::string(PROJECT_ROOT) + std::string("/constants.json"));
     this->config = json::parse(configFile);
     this->max_num_threads = config["MAX_NUM_THREADS"];
     this->taille_dalle = config["TAILLE_DALLE"];
-    this->bigImg = imread(config["PATH_BIG_IMAGE"]);
+    this->bigImg = imread(std::string(PROJECT_ROOT) + std::string("/") + std::string(config["PATH_BIG_IMAGE"]));
     this->width = bigImg.size().height;
     this->height = bigImg.size().width;
     this->newWidth = config["NEW_WIDTH"];
     this->newHeight = height * float(newWidth) / float(width);
     this->outputArr = Mat::zeros(newWidth * taille_dalle, newHeight * taille_dalle, CV_8UC1);
-    std::ifstream f(config["TILES_DICT_PATH"]);
+    std::ifstream f(std::string(PROJECT_ROOT) + std::string("/") + std::string(config["TILES_DICT_PATH"]));
     this->json_data = json::parse(f);
 }
 
@@ -51,7 +51,7 @@ void MosaicFromSmallCats::createMosaicUneTranche(int deb_inclu, int fin_exclue)
             {
                 // Load the first image corresponding to the value
                 string fileName = json_data[value][0];
-                Mat smallImage = imread(fileName, IMREAD_GRAYSCALE);
+                Mat smallImage = imread(std::string(PROJECT_ROOT) + std::string(fileName), IMREAD_GRAYSCALE);
 
                 if (!smallImage.empty())
                 {

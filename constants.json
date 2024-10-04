@@ -1,8 +1,8 @@
 {
     "MAX_NUM_THREADS": 8,
     "TAILLE_DALLE": 50,
-    "NEW_WIDTH": 100,
+    "NEW_WIDTH": 25,
     
-    "PATH_BIG_IMAGE": "/app/input.jpg",
-    "TILES_DICT_PATH": "/app/tiles_dict.json"
+    "PATH_BIG_IMAGE": "input.jpg",
+    "TILES_DICT_PATH": "tiles_dict.json"
 }

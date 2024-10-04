@@ -13,4 +13,6 @@ class ImageProcessorColor
     public:
     ImageProcessorColor();
     json config;
+
+    void processImages();
 };
