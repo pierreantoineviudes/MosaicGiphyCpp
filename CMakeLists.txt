@@ -18,5 +18,6 @@ target_link_libraries(main PRIVATE ${OpenCV_LIBS} nlohmann_json::nlohmann_json p
 include(CTest)
 include_directories( ${PROJECT_SOURCE_DIR}/include )
 include_directories( ${OpenCV_INCLUDE_DIRS} )
+include_directories( "~/libs/progressbar/include" )
 
 enable_testing()

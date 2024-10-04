@@ -1,5 +1,6 @@
 #include <nlohmann/json.hpp>
 #include <opencv2/opencv.hpp>
+#include "progressbar.hpp"
 
 using json = nlohmann::json;
 using namespace cv;
@@ -20,6 +21,6 @@ public:
     int newHeight;
     Mat outputArr;
 
-    void createMosaicUneTranche(int deb_inclu, int fin_exclue);
+    void createMosaicUneTranche(int deb_inclu, int fin_exclue, progressbar& bar);
     void createMosaic();
 };
