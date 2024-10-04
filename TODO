@@ -1,3 +1,4 @@
 parralelize on GPU
 add colors
 add progress bar
+correct vcpkg installation of nlohmann json for local installation (gestion du path)
