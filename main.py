@@ -1,6 +1,6 @@
-from typing import Union
+from typing import Union, Annotated
 
-from fastapi import FastAPI, BackgroundTasks
+from fastapi import FastAPI, BackgroundTasks, File, UploadFile
 from fastapi.responses import JSONResponse
 import subprocess
 import uuid
@@ -14,11 +14,15 @@ exe_path = "/mnt/d/fichiers_pa/dev_ubuntu/MosaicGiphyCpp/build/main"
 task_status = {}
 
 
-@app.get("/process-image/")
-async def process_image(background_tasks: BackgroundTasks):
+@app.post("/process-image/")
+async def process_image(file: UploadFile, background_tasks: BackgroundTasks):
     task_id = str(uuid.uuid4())
 
     task_status[task_id] = "processing"
+    print('file : ', file.filename)
+    print("content-type : ", file.content_type)
+    
+    # save the file locally and run script wtih the file
 
     background_tasks.add_task(process_image_task, task_id)
 

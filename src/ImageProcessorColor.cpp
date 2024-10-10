@@ -31,7 +31,7 @@ void ImageProcessorColor::processImageArr(int deb_inclu, int fin_exclue)
 void ImageProcessorColor::processImages()
 {
     cout << "in processImages" << endl;
-    std::string dataDir = std::string(PROJECT_ROOT) + "data/*jpg";
+    std::string dataDir = std::string(PROJECT_ROOT) + "/data/*jpg";
     glob(dataDir, fnColor, true);
     countImagesColor = fnColor.size();
     cout << "nb total d'images : " << countImagesColor << endl;
