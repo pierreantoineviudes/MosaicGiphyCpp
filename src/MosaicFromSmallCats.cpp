@@ -5,8 +5,6 @@
 #include <thread>
 #include <chrono>
 #include "MosaicFromSmallCats.hpp"
-#include "progressbar.hpp"
-#include <mutex>
 
 using json = nlohmann::json;
 using namespace std;
@@ -30,12 +28,8 @@ MosaicFromSmallCats::MosaicFromSmallCats()
     this->json_data = json::parse(f);
 }
 
-std::mutex progress_mutex;
-
-void MosaicFromSmallCats::createMosaicUneTranche(int deb_inclu, int fin_exclue, progressbar& bar)
+void MosaicFromSmallCats::createMosaicUneTranche(int deb_inclu, int fin_exclue)
 {
-    std::lock_guard<std::mutex> lock(progress_mutex);
-    bar.update();
     for (int i = deb_inclu; i < fin_exclue; i++)
     {
         for (int j = 0; j < newWidth; j++)
@@ -97,13 +91,12 @@ void MosaicFromSmallCats::createMosaic()
     int size_tranche = ceil(newHeight * 1.0 / max_num_threads);
 
     thread lds[max_num_threads];
-    progressbar bar(max_num_threads);    
     
     for (int k = 0; k < max_num_threads; k++)
     {   
         int deb_inclu = k * size_tranche;
         int fin_exclue = (k + 1) * size_tranche;
-        lds[k] = thread(&MosaicFromSmallCats::createMosaicUneTranche, this, deb_inclu, fin_exclue, std::ref(bar));
+        lds[k] = thread(&MosaicFromSmallCats::createMosaicUneTranche, this, deb_inclu, fin_exclue);
     }
 
     // fin des threads
