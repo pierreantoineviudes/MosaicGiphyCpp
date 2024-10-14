@@ -26,6 +26,17 @@ ImageProcessorColor::ImageProcessorColor()
 void ImageProcessorColor::processImageArr(int deb_inclu, int fin_exclue)
 {
     cout << "in processImages arr" << endl;
+    int n_color = 10;
+    for (size_t i = 0; i < config["N_COLOR"]; i++)
+    {
+        for (size_t j = 0; j < config["N_COLOR"]; j++)
+        {
+            for (size_t k = 0; k < config["N_COLOR"]; k++)
+            {
+                dict_of_images[i][j][k] = "value";
+            }
+        }
+    }
 }
 
 void ImageProcessorColor::processImages()
@@ -37,20 +48,12 @@ void ImageProcessorColor::processImages()
     cout << "nb total d'images : " << countImagesColor << endl;
     // n_color représnete la résoltuion de couleur qu'on va garder
     int n_color = 10;
-    //initialisation du vecteur
-    std::vector<std::vector<std::vector<std::string>>> vec3D(n_color, std::vector<std::vector<std::string>>(n_color, std::vector<std::string>(n_color, "")));
-    
-    // // initialisation du vecteur
-    // for (int i = 0; i < n_color; i ++)
-    // {
-    //     for (int j = 0; j < n_color; j ++)
-    //     {
-    //         for (int k = 0; k < n_color; k++)
-    //         {
-    //             vec3D[i][j][k] = 
-    //         }
-    //     }
-    // }
+    // initialisation du vecteur
+    std::vector<std::vector<std::vector<std::string>>> vec3D(
+        config["N_COLOR"],
+        std::vector<std::vector<std::string>>(
+            config["N_COLOR"],
+            std::vector<std::string>(config["N_COLOR"], "")));
 
     // resize les images et les stocker dans data_output
     // multi threaded
@@ -69,7 +72,6 @@ void ImageProcessorColor::processImages()
     {
         lds[k].join();
     }
-
 
     // json object takes vec3D value
     dict_of_images = vec3D;

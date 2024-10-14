@@ -3,6 +3,7 @@
 #include "ImageProcessorColor.hpp"
 #include "MosaicFromSmallCats.hpp"
 #include <iostream>
+#include "Saveandload3dvec.hpp"
 
 using namespace cv;
 using namespace std;
