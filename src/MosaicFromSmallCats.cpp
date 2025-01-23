@@ -6,6 +6,9 @@
 #include <chrono>
 #include "MosaicFromSmallCats.hpp"
 
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
+
 using json = nlohmann::json;
 using namespace std;
 using namespace cv;
@@ -18,7 +21,9 @@ MosaicFromSmallCats::MosaicFromSmallCats()
     this->config = json::parse(configFile);
     this->max_num_threads = config["MAX_NUM_THREADS"];
     this->taille_dalle = config["TAILLE_DALLE"];
-    this->bigImg = imread(std::string(PROJECT_ROOT) + std::string("/") + std::string(config["PATH_BIG_IMAGE"]));
+    // read image
+    // this->bigImg = imread(std::string(PROJECT_ROOT) + std::string("/") + std::string(config["PATH_BIG_IMAGE"]));
+    this->bigImg = ;
     this->width = bigImg.size().height;
     this->height = bigImg.size().width;
     this->newWidth = config["NEW_WIDTH"];
